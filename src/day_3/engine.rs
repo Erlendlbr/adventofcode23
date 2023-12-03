@@ -48,35 +48,16 @@ fn get_nr(matrix: [[char;INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32,
     let (i,j) =loc;
     let mut nr1 = 0;
     let mut nr2 = 0;
-    print!("\n");
-    
-    print!("{}",matrix[i-1][j-1]);
-    print!("{}",matrix[i-1][j]);
-    print!("{}",matrix[i-1][j+1]);
-
-    print!("\n");
-    
-    print!("{}",matrix[i][j-1]);
-    print!("{}",matrix[i][j]);
-    print!("{}",matrix[i][j+1]);
-
-    print!("\n");
-
-    print!("{}",matrix[i+1][j-1]);
-    print!("{}",matrix[i+1][j]);
-    print!("{}",matrix[i+1][j+1]);
-
-    print!("\n");
 
     if matrix[i-1][j].to_digit(RADIX).unwrap_or(11) < 11 {
-        println!("find nr");
         let loc = get_start(matrix, (i-1,j));
         let t = nr_from_loc(matrix, loc);
         if nr1 == 0 {
             nr1 = t;
-        }
-        else {
+        } else if nr2 == 0 {
             nr2 = t;
+        } else {
+            return (0,0);
         }
     } else {
         if matrix[i-1][j-1].to_digit(RADIX).unwrap_or(11) < 11 {
@@ -84,52 +65,53 @@ fn get_nr(matrix: [[char;INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32,
             let t = nr_from_loc(matrix, loc);
             if nr1 == 0 {
                 nr1 = t;
-            }
-            else {
+            } else if nr2 == 0 {
                 nr2 = t;
+            } else {
+                return (0,0);
             }
         } 
         if matrix[i-1][j+1].to_digit(RADIX).unwrap_or(11) < 11 {
             let t = nr_from_loc(matrix, (i-1, j+1));
             if nr1 == 0 {
                 nr1 = t;
-            }
-            else {
+            } else if nr2 == 0 {
                 nr2 = t;
+            } else {
+                return (0,0);
             }
         }
     } 
-
     if matrix[i][j-1].to_digit(RADIX).unwrap_or(11) < 11 {
         let loc = get_start(matrix, (i,j-1));
         let t = nr_from_loc(matrix, loc);
         if nr1 == 0 {
             nr1 = t;
-        }
-        else {
+        } else if nr2 == 0 {
             nr2 = t;
+        } else {
+            return (0,0);
         }
     } 
     if matrix[i][j+1].to_digit(RADIX).unwrap_or(11) < 11 {
         let t = nr_from_loc(matrix, (i, j+1));
         if nr1 == 0 {
             nr1 = t;
-        }
-        else {
+        } else if nr2 == 0 {
             nr2 = t;
+        } else {
+            return (0,0);
         }
     }
-
-
-
     if matrix[i+1][j].to_digit(RADIX).unwrap_or(11) < 11 {
         let loc = get_start(matrix, (i+1,j));
         let t = nr_from_loc(matrix, loc);
         if nr1 == 0 {
             nr1 = t;
-        }
-        else {
+        } else if nr2 == 0 {
             nr2 = t;
+        } else {
+            return (0,0);
         }
     } else {
         if matrix[i+1][j-1].to_digit(RADIX).unwrap_or(11) < 11 {
@@ -137,23 +119,23 @@ fn get_nr(matrix: [[char;INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32,
             let t = nr_from_loc(matrix, loc);
             if nr1 == 0 {
                 nr1 = t;
-            }
-            else {
+            } else if nr2 == 0 {
                 nr2 = t;
+            } else {
+                return (0,0);
             }
         } 
         if matrix[i+1][j+1].to_digit(RADIX).unwrap_or(11) < 11 {
             let t = nr_from_loc(matrix, (i+1, j+1));
             if nr1 == 0 {
                 nr1 = t;
-            }
-            else {
+            } else if nr2 == 0 {
                 nr2 = t;
+            } else {
+                return (0,0);
             }            
         }
-    } 
-
-    print!("\n");
+    }
     (nr1,nr2)
 }
 
@@ -172,7 +154,6 @@ fn nr_from_loc(matrix: [[char;INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> 
     let (i, mut j) = loc;
     let mut cur_nr = 0;
     while matrix[i][j].to_digit(RADIX).unwrap_or(11) < 11 {
-        println!("curr: {}", cur_nr);
         cur_nr = (cur_nr * 10) + matrix[i][j].to_digit(RADIX).unwrap();
         j += 1;
         if j == INPUT_SIZE {
@@ -215,7 +196,6 @@ fn calculate_engine(matrix: [[char;INPUT_SIZE]; INPUT_SIZE]) -> u32 {
                     cur_nr = 0;
                     slice = vec![];
                 }
-                
             }
         }
         if 0 < cur_nr {
@@ -231,7 +211,7 @@ fn calculate_engine(matrix: [[char;INPUT_SIZE]; INPUT_SIZE]) -> u32 {
 
 fn validate_nr(matrix: [[char;INPUT_SIZE]; INPUT_SIZE], loc: Vec<(usize,usize)>) -> bool {
     for (x, y) in loc{
-        if (0 <= x && x < INPUT_SIZE) && (0 <= y && y < INPUT_SIZE) {
+        if (x < INPUT_SIZE) && (y < INPUT_SIZE) {
             match matrix[x][y] {
                 '1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'0' => {
                 }
