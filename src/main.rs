@@ -1,6 +1,7 @@
 use std::io::stdin;
 mod day_1;
 mod day_2;
+mod day_3;
 
 fn get_input() -> String {
     let mut ret_v = String::new();
@@ -32,6 +33,7 @@ fn main() {
             }
             "3" => {
                 println!("Lets open nr 3!");
+                day_3::engine::get_engine_nr();
                 inp = get_input();
             }
             "4" => {
