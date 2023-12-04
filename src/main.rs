@@ -2,6 +2,7 @@ use std::io::stdin;
 mod day_1;
 mod day_2;
 mod day_3;
+mod day_4;
 
 fn get_input() -> String {
     let mut ret_v = String::new();
@@ -38,6 +39,8 @@ fn main() {
             }
             "4" => {
                 println!("Lets open nr 4!");
+                day_4::card::calc_games();
+                day_4::card::calc_cascade();
                 inp = get_input();
             }
             "5" => {
