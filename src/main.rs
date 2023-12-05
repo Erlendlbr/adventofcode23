@@ -3,6 +3,7 @@ mod day_1;
 mod day_2;
 mod day_3;
 mod day_4;
+mod day_5;
 
 fn get_input() -> String {
     let mut ret_v = String::new();
@@ -45,6 +46,8 @@ fn main() {
             }
             "5" => {
                 println!("Lets open nr 5!");
+                day_5::map::map_seed();
+                day_5::map::map_seed_range();
                 inp = get_input();
             }
             "6" => {
