@@ -112,17 +112,17 @@ pub fn map_seed_range() {
     }
 
     let low_nr = seed_tup_vec
-    .next_map(seed_soil_map)
-    .next_map(soil_fertilizer_map)
-    .next_map(fertilizer_water_map)
-    .next_map(water_light_map)
-    .next_map(light_temperature_map)
-    .next_map(temperature_humidity_map)
-    .next_map(humidity_location_map)
-    .iter()
-    .map(|tup| tup.0)
-    .min()
-    .unwrap();
+        .next_map(seed_soil_map)
+        .next_map(soil_fertilizer_map)
+        .next_map(fertilizer_water_map)
+        .next_map(water_light_map)
+        .next_map(light_temperature_map)
+        .next_map(temperature_humidity_map)
+        .next_map(humidity_location_map)
+        .iter()
+        .map(|tup| tup.0)
+        .min()
+        .unwrap();
 
     println!("low nr {:?} ", low_nr);
 }
