@@ -4,6 +4,7 @@ mod day_2;
 mod day_3;
 mod day_4;
 mod day_5;
+mod day_6;
 
 fn get_input() -> String {
     let mut ret_v = String::new();
@@ -52,6 +53,8 @@ fn main() {
             }
             "6" => {
                 println!("Lets open nr 6!");
+                day_6::race::calc_nr();
+                day_6::race::calc_one_race();
                 inp = get_input();
             }
             "7" => {
