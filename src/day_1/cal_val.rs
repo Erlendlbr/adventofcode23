@@ -5,7 +5,7 @@ pub fn calc_inp() {
     let file2 = "docs/1/star2.txt";
 
     let contents = fs::read_to_string(file1).expect("Should have been able to read the file");
-    let accum: u32 = contents.split('\n').map(|line| get_line_nr(line)).sum();
+    let accum: u32 = contents.split('\n').map(get_line_nr).sum();
 
     println!("accuum: {:?}", accum);
 
@@ -39,8 +39,7 @@ fn get_line_nr(line: &str) -> u32 {
 }
 
 fn tranform_line(line: &str) -> String {
-    let ret = line
-        .replace("one", "one1one")
+    line.replace("one", "one1one")
         .replace("two", "two2two")
         .replace("three", "three3three")
         .replace("four", "four4four")
@@ -48,6 +47,5 @@ fn tranform_line(line: &str) -> String {
         .replace("six", "six6six")
         .replace("seven", "seven7seven")
         .replace("eight", "eight8eight")
-        .replace("nine", "nine9nine");
-    ret
+        .replace("nine", "nine9nine")
 }

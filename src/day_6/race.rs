@@ -66,7 +66,7 @@ pub fn calc_nr() {
         .zip(line2)
         .map(|(time, dist)| Race { time, dist })
         .map(|race| race.get_pos_v1())
-        .fold(1, |tot, pos| tot * pos);
+        .product::<i64>();
 
     println!("races = {} ", amout);
 }

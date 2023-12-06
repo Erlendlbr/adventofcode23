@@ -9,12 +9,12 @@ pub fn calc_games() {
         let (_, game_str) = line.split_once(':').unwrap();
         let (left_str, right_str) = game_str.split_once('|').unwrap();
 
-        let left_num: HashSet<&str> = left_str.split_ascii_whitespace().into_iter().collect();
-        let right_num: HashSet<&str> = right_str.split_ascii_whitespace().into_iter().collect();
+        let left_num: HashSet<&str> = left_str.split_ascii_whitespace().collect();
+        let right_num: HashSet<&str> = right_str.split_ascii_whitespace().collect();
 
         let col = left_num.intersection(&right_num).count();
         if 0 < col {
-            tot += (2 as i32).pow((col as u32) - 1);
+            tot += 2_i32.pow((col as u32) - 1);
         }
     }
     println!("The total is {}", tot);

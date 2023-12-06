@@ -22,7 +22,7 @@ fn load_engine() -> [[char; INPUT_SIZE]; INPUT_SIZE] {
             print!("{}", ch);
             matrix[i][j] = ch;
         }
-        print!("\n");
+        println!();
     }
     matrix
 }
@@ -187,20 +187,16 @@ fn calculate_engine(matrix: [[char; INPUT_SIZE]; INPUT_SIZE]) -> u32 {
                     }
                 }
                 _ => {
-                    if 0 < cur_nr {
-                        if validate_nr(matrix, slice) {
-                            tot += cur_nr;
-                        }
+                    if 0 < cur_nr && validate_nr(matrix, slice) {
+                        tot += cur_nr;
                     }
                     cur_nr = 0;
                     slice = vec![];
                 }
             }
         }
-        if 0 < cur_nr {
-            if validate_nr(matrix, slice) {
-                tot += cur_nr;
-            }
+        if 0 < cur_nr && validate_nr(matrix, slice) {
+            tot += cur_nr;
         }
         cur_nr = 0;
         slice = vec![];
@@ -220,5 +216,5 @@ fn validate_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: Vec<(usize, usize)
             }
         }
     }
-    return false;
+    false
 }

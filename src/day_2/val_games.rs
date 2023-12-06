@@ -42,7 +42,7 @@ fn validate(line: &str, cube_def: &Cubes) -> u32 {
             return 0;
         }
     }
-    return c.parse::<u32>().unwrap();
+    c.parse::<u32>().unwrap()
 }
 
 fn validate_round(round: &str, cube_def: &Cubes) -> bool {
