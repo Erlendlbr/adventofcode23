@@ -10,10 +10,10 @@ fn get_input() -> String {
     let mut ret_v = String::new();
     println!("Enter wich day you want to solve; q to exit");
     let _ = stdin().read_line(&mut ret_v);
-    if let Some('\n')=ret_v.chars().next_back() {
+    if let Some('\n') = ret_v.chars().next_back() {
         ret_v.pop();
     }
-    if let Some('\r')=ret_v.chars().next_back() {
+    if let Some('\r') = ret_v.chars().next_back() {
         ret_v.pop();
     }
     ret_v
@@ -133,7 +133,7 @@ fn main() {
                 println!("Wrong input!");
                 println!("try again");
                 inp = get_input();
-            }            
+            }
         }
     }
     println!("got some!");
