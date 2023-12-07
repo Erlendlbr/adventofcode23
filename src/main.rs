@@ -5,6 +5,7 @@ mod day_3;
 mod day_4;
 mod day_5;
 mod day_6;
+mod day_7;
 
 fn get_input() -> String {
     let mut ret_v = String::new();
@@ -59,6 +60,7 @@ fn main() {
             }
             "7" => {
                 println!("Lets open nr 7!");
+                day_7::poker::parse_hands();
                 inp = get_input();
             }
             "8" => {
