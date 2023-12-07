@@ -48,7 +48,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
     let mut nr1 = 0;
     let mut nr2 = 0;
 
-    if matrix[i - 1][j].to_digit(RADIX).is_some() {
+    if matrix[i - 1][j].is_digit(RADIX) {
         let loc = get_start(matrix, (i - 1, j));
         let t = nr_from_loc(matrix, loc);
         if nr1 == 0 {
@@ -59,7 +59,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
             return (0, 0);
         }
     } else {
-        if matrix[i - 1][j - 1].to_digit(RADIX).is_some() {
+        if matrix[i - 1][j - 1].is_digit(RADIX) {
             let loc = get_start(matrix, (i - 1, j - 1));
             let t = nr_from_loc(matrix, loc);
             if nr1 == 0 {
@@ -70,7 +70,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
                 return (0, 0);
             }
         }
-        if matrix[i - 1][j + 1].to_digit(RADIX).is_some() {
+        if matrix[i - 1][j + 1].is_digit(RADIX) {
             let t = nr_from_loc(matrix, (i - 1, j + 1));
             if nr1 == 0 {
                 nr1 = t;
@@ -81,7 +81,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
             }
         }
     }
-    if matrix[i][j - 1].to_digit(RADIX).is_some() {
+    if matrix[i][j - 1].is_digit(RADIX) {
         let loc = get_start(matrix, (i, j - 1));
         let t = nr_from_loc(matrix, loc);
         if nr1 == 0 {
@@ -92,7 +92,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
             return (0, 0);
         }
     }
-    if matrix[i][j + 1].to_digit(RADIX).is_some() {
+    if matrix[i][j + 1].is_digit(RADIX) {
         let t = nr_from_loc(matrix, (i, j + 1));
         if nr1 == 0 {
             nr1 = t;
@@ -102,7 +102,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
             return (0, 0);
         }
     }
-    if matrix[i + 1][j].to_digit(RADIX).is_some() {
+    if matrix[i + 1][j].is_digit(RADIX) {
         let loc = get_start(matrix, (i + 1, j));
         let t = nr_from_loc(matrix, loc);
         if nr1 == 0 {
@@ -113,7 +113,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
             return (0, 0);
         }
     } else {
-        if matrix[i + 1][j - 1].to_digit(RADIX).is_some() {
+        if matrix[i + 1][j - 1].is_digit(RADIX) {
             let loc = get_start(matrix, (i + 1, j - 1));
             let t = nr_from_loc(matrix, loc);
             if nr1 == 0 {
@@ -124,7 +124,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
                 return (0, 0);
             }
         }
-        if matrix[i + 1][j + 1].to_digit(RADIX).is_some() {
+        if matrix[i + 1][j + 1].is_digit(RADIX) {
             let t = nr_from_loc(matrix, (i + 1, j + 1));
             if nr1 == 0 {
                 nr1 = t;
@@ -140,7 +140,7 @@ fn get_nr(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (u32
 
 fn get_start(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (usize, usize) {
     let (i, mut j) = loc;
-    while matrix[i][j].to_digit(RADIX).is_some() {
+    while matrix[i][j].is_digit(RADIX) {
         if j == 0 {
             return (i, j);
         }
@@ -152,7 +152,7 @@ fn get_start(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> (
 fn nr_from_loc(matrix: [[char; INPUT_SIZE]; INPUT_SIZE], loc: (usize, usize)) -> u32 {
     let (i, mut j) = loc;
     let mut cur_nr = 0;
-    while matrix[i][j].to_digit(RADIX).is_some() {
+    while matrix[i][j].is_digit(RADIX) {
         cur_nr = (cur_nr * 10) + matrix[i][j].to_digit(RADIX).unwrap();
         j += 1;
         if j == INPUT_SIZE {
