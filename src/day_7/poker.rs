@@ -148,5 +148,10 @@ pub fn parse_hands() {
         .enumerate()
         .map(|(i, hand)| (i as u32 + 1) * hand.bet)
         .sum();
+    if PART_TWO {
+        println!("Running part two");
+    } else {
+        println!("Ruunning part one");
+    }
     println!("tada: {}", sum)
 }
