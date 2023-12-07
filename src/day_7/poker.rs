@@ -12,10 +12,10 @@ struct Hand {
 enum HandType {
     FiveKind,
     FourKind,
-    FullHouse,
+    FulHouse,
     ThreKind,
-    TwoPair,
-    OnePair,
+    TwooPair,
+    OneePair,
     HighCard,
 }
 
@@ -93,7 +93,6 @@ impl Hand {
         som.sort_by_key(|item| item.1);
         som.reverse();
 
-        println!("som som : {:?}", som);
         if may_need.is_some() {
             if som.is_empty() {
                 som.push(('J', 5));
@@ -108,15 +107,15 @@ impl Hand {
             HandType::FourKind
         } else if som[0].1 == 3 {
             if som[1].1 == 2 {
-                HandType::FullHouse
+                HandType::FulHouse
             } else {
                 HandType::ThreKind
             }
         } else if som[0].1 == 2 {
             if som[1].1 == 2 {
-                HandType::TwoPair
+                HandType::TwooPair
             } else {
-                HandType::OnePair
+                HandType::OneePair
             }
         } else {
             HandType::HighCard
