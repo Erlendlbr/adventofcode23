@@ -18,37 +18,34 @@ pub fn traverse_multi_map() {
             _ => unreachable!(),
         })
         .collect();
-    let new_str = maps.replace(")", "").replace("(", "").replace(" ", "");
+    let new_str = maps.replace([')', '(', ' '], "");
     let map = new_str.lines().fold(HashMap::new(), |mut acc, line| {
-        let (index, rest) = line.split_once("=").unwrap();
+        let (index, rest) = line.split_once('=').unwrap();
         let tup = rest.split_once(',').unwrap();
         acc.insert(index, tup);
         acc
     });
 
     let locs: Vec<&str> = map
-        .keys()
-        .map(|k| *k)
-        .into_iter()
-        .filter(|key| key.ends_with("A"))
+        .keys().copied()
+        .filter(|key| key.ends_with('A'))
         .collect();
 
     println!("we are starting with: {:?}", locs);
 
     let counts: Vec<i64> = locs
-        .iter()
-        .map(|k| *k)
+        .iter().copied()
         .map(|item| {
             let mut loc = item;
             let mut cnt = 0;
-            while !loc.ends_with("Z") {
+            while !loc.ends_with('Z') {
                 for step in &steps {
                     loc = match step {
                         Direction::Left => map.get(loc).unwrap().0,
                         Direction::Right => map.get(loc).unwrap().1,
                     };
                     cnt += 1;
-                    if loc.ends_with("Z") {
+                    if loc.ends_with('Z') {
                         break;
                     }
                 }
@@ -80,9 +77,9 @@ pub fn traverse_map() {
             _ => unreachable!(),
         })
         .collect();
-    let new_str = maps.replace(")", "").replace("(", "").replace(" ", "");
+    let new_str = maps.replace([')', '(', ' '], "");
     let map = new_str.lines().fold(HashMap::new(), |mut acc, line| {
-        let (index, rest) = line.split_once("=").unwrap();
+        let (index, rest) = line.split_once('=').unwrap();
         let tup = rest.split_once(',').unwrap();
         acc.insert(index, tup);
         acc
