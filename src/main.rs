@@ -6,6 +6,7 @@ mod day_4;
 mod day_5;
 mod day_6;
 mod day_7;
+mod day_8;
 
 fn get_input() -> String {
     let mut ret_v = String::new();
@@ -65,6 +66,8 @@ fn main() {
             }
             "8" => {
                 println!("Lets open nr 8!");
+                day_8::path::traverse_map();
+                day_8::path::traverse_multi_map();
                 inp = get_input();
             }
             "9" => {
