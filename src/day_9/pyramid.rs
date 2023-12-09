@@ -1,8 +1,5 @@
-use std::fs;
-
 pub fn get_top_num() {
-    let file1 = "docs/9/chain.txt";
-    let contents = fs::read_to_string(file1).expect("Should have been able to read the file");
+    let contents = std::fs::read_to_string("docs/9/chain.txt").expect("whoops");
 
     let data: Vec<Vec<i32>> = contents
         .lines()
@@ -30,13 +27,7 @@ fn call_rec(slice: &[i32]) -> i32 {
 }
 
 fn rec_calc(slice: &[i32]) -> i32 {
-    let into: Vec<i32> = slice
-        .iter()
-        .enumerate()
-        .filter(|tup| 0 < tup.0)
-        .map(|tup| tup.1 - slice[tup.0 - 1])
-        .collect();
-
+    let into: Vec<i32> = slice.windows(2).map(|tup| tup[1] - tup[0]).collect();
     if into.iter().all(|i| i == &0) {
         0
     } else {
