@@ -10,7 +10,7 @@ pub fn get_top_num() {
         })
         .collect();
 
-    let rec_sum: i32 = data.iter().map(|vec| vec.as_slice()).map(call_rec).sum();
+    let rec_sum: i32 = data.iter().map(|vec| vec.as_slice()).map(rec_calc).sum();
     println!("recursive calc: {}", rec_sum);
     let rev: i32 = data.iter().map(|vec| vec.as_slice()).map(calc_rev).sum();
     println!("the reverse is {}", rev);
@@ -19,18 +19,14 @@ pub fn get_top_num() {
 fn calc_rev(slice: &[i32]) -> i32 {
     let mut rev = slice.to_owned();
     rev.reverse();
-    call_rec(rev.as_slice())
-}
-
-fn call_rec(slice: &[i32]) -> i32 {
-    slice.last().unwrap() + rec_calc(slice)
+    rec_calc(rev.as_slice())
 }
 
 fn rec_calc(slice: &[i32]) -> i32 {
     let into: Vec<i32> = slice.windows(2).map(|tup| tup[1] - tup[0]).collect();
     if into.iter().all(|i| i == &0) {
-        0
+        *slice.last().unwrap()
     } else {
-        into.last().unwrap() + rec_calc(into.as_slice())
+        slice.last().unwrap() + rec_calc(into.as_slice())
     }
 }
