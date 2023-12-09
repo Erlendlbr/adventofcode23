@@ -23,25 +23,19 @@ pub fn get_top_num() {
 }
 
 fn calc_vec_num(vec: &[i32]) -> i32 {
-    let mut breaker = true;
-    let mut col_vec = vec![];
-    col_vec.push(vec.to_owned());
-    let mut cnt = 0;
-    while breaker {
-        let work_vec = col_vec[cnt]
+    let mut col_vec = vec![vec.to_owned()];
+    loop {
+        let look_up = col_vec.last().unwrap();
+        let work_vec: Vec<i32> = look_up
             .iter()
             .enumerate()
             .filter(|tup| 0 < tup.0)
-            .map(|tup| tup.1 - col_vec[cnt][tup.0 - 1])
+            .map(|tup| tup.1 - look_up[tup.0 - 1])
             .collect();
-        breaker = false;
-        for i in &work_vec {
-            if i != &0 {
-                breaker = true;
-            }
+        if work_vec.iter().all(|i| i == &0) {
+            break;
         }
         col_vec.push(work_vec);
-        cnt += 1;
     }
     col_vec.iter().map(|vec| vec.last().unwrap()).sum()
 }
