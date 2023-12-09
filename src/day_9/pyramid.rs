@@ -13,16 +13,19 @@ pub fn get_top_num() {
         })
         .collect();
 
-    let num: i32 = data.iter().map(|vec| calc_vec_num(vec.clone())).sum();
+    let num: i32 = data.iter().map(|vec| calc_vec_num(vec.as_slice())).sum();
     println!("Top num is {}", num);
-    let rev: i32 = data.iter().map(|vec| calc_vec_num_rev(vec.clone())).sum();
+    let rev: i32 = data
+        .iter()
+        .map(|vec| calc_vec_num_rev(vec.as_slice()))
+        .sum();
     println!("the reverse is {}", rev);
 }
 
-fn calc_vec_num(vec: Vec<i32>) -> i32 {
+fn calc_vec_num(vec: &[i32]) -> i32 {
     let mut breaker = true;
     let mut col_vec = vec![];
-    col_vec.push(vec);
+    col_vec.push(vec.to_owned());
     let mut cnt = 0;
     while breaker {
         let work_vec = col_vec[cnt]
@@ -43,10 +46,10 @@ fn calc_vec_num(vec: Vec<i32>) -> i32 {
     col_vec.iter().map(|vec| vec.last().unwrap()).sum()
 }
 
-fn calc_vec_num_rev(vec: Vec<i32>) -> i32 {
+fn calc_vec_num_rev(vec: &[i32]) -> i32 {
     let mut breaker = true;
     let mut col_vec = vec![];
-    col_vec.push(vec);
+    col_vec.push(vec.to_owned());
     let mut cnt = 0;
     while breaker {
         let work_vec = col_vec[cnt]
@@ -64,13 +67,11 @@ fn calc_vec_num_rev(vec: Vec<i32>) -> i32 {
         col_vec.push(work_vec);
         cnt += 1;
     }
-    let some: Vec<_> = col_vec
+    col_vec
         .iter()
         .enumerate()
         .rev()
         .map(|tup| tup.1[0])
-        .collect();
-    some.iter()
         .enumerate()
         .filter(|tup| 0 < tup.0)
         .fold(0, |mut acc, tup| {
