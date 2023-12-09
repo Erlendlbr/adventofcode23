@@ -27,14 +27,16 @@ pub fn traverse_multi_map() {
     });
 
     let locs: Vec<&str> = map
-        .keys().copied()
+        .keys()
+        .copied()
         .filter(|key| key.ends_with('A'))
         .collect();
 
     println!("we are starting with: {:?}", locs);
 
     let counts: Vec<i64> = locs
-        .iter().copied()
+        .iter()
+        .copied()
         .map(|item| {
             let mut loc = item;
             let mut cnt = 0;
@@ -55,6 +57,16 @@ pub fn traverse_multi_map() {
         .collect();
 
     println!("Our counts {:?}", counts);
+
+    let len_step = steps.len() as i64;
+    println!("we take {} steps", len_step);
+
+    let smpl = counts.iter().fold(len_step, |mut acc, i| {
+        acc *= i / len_step;
+        acc
+    });
+
+    println!("It took {} steps to the end", smpl);
 
     let cnt = counts.iter().fold(1, |mut acc, i| {
         acc = num::integer::lcm(acc, *i);

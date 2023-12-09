@@ -24,14 +24,11 @@ fn get_line_nr(line: &str) -> u32 {
     let mut first = ' ';
     let mut last = ' ';
     for c in line.chars() {
-        match c.to_digit(RADIX) {
-            Some(_) => {
-                if first == ' ' {
-                    first = c;
-                }
-                last = c;
+        if c.is_ascii_digit() {
+            if first == ' ' {
+                first = c;
             }
-            _ => (),
+            last = c;
         }
     }
     // println!("First: {first}; Last: {last}");
