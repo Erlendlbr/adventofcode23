@@ -33,7 +33,7 @@ fn get_ratio(matrix: [[char; INPUT_SIZE]; INPUT_SIZE]) -> u32 {
         for j in 0..INPUT_SIZE {
             if matrix[i][j] == '*' {
                 let (nr1, nr2) = get_nr(matrix, (i, j));
-                    tot += nr1 * nr2;
+                tot += nr1 * nr2;
             }
         }
     }

@@ -7,6 +7,7 @@ mod day_5;
 mod day_6;
 mod day_7;
 mod day_8;
+mod day_9;
 
 fn get_input() -> String {
     let mut ret_v = String::new();
@@ -72,6 +73,7 @@ fn main() {
             }
             "9" => {
                 println!("Lets open nr 9!");
+                day_9::pyramid::get_top_num();
                 inp = get_input();
             }
             "10" => {
