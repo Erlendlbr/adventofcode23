@@ -13,33 +13,33 @@ pub fn get_top_num() {
         })
         .collect();
 
-    let rec_sum: i32 = data.iter().map(call_rec).sum();
+    let rec_sum: i32 = data.iter().map(|vec| vec.as_slice()).map(call_rec).sum();
     println!("recursive calc: {}", rec_sum);
-    let rev: i32 = data.iter().map(calc_rev).sum();
+    let rev: i32 = data.iter().map(|vec| vec.as_slice()).map(calc_rev).sum();
     println!("the reverse is {}", rev);
 }
 
-fn calc_rev(vec: &Vec<i32>) -> i32 {
-    let mut rev = vec.clone();
+fn calc_rev(slice: &[i32]) -> i32 {
+    let mut rev = slice.to_owned();
     rev.reverse();
-    call_rec(&rev)
+    call_rec(rev.as_slice())
 }
 
-fn call_rec(vec: &Vec<i32>) -> i32 {
-    vec.last().unwrap() + rec_calc(vec)
+fn call_rec(slice: &[i32]) -> i32 {
+    slice.last().unwrap() + rec_calc(slice)
 }
 
-fn rec_calc(vec: &Vec<i32>) -> i32 {
-    let into: Vec<i32> = vec
+fn rec_calc(slice: &[i32]) -> i32 {
+    let into: Vec<i32> = slice
         .iter()
         .enumerate()
         .filter(|tup| 0 < tup.0)
-        .map(|tup| tup.1 - vec[tup.0 - 1])
+        .map(|tup| tup.1 - slice[tup.0 - 1])
         .collect();
 
     if into.iter().all(|i| i == &0) {
         0
     } else {
-        into.last().unwrap() + rec_calc(&into)
+        into.last().unwrap() + rec_calc(into.as_slice())
     }
 }
