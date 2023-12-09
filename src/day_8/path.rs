@@ -110,6 +110,5 @@ pub fn traverse_map() {
             }
         }
     }
-
     println!("It took {} steps to the end", cnt);
 }

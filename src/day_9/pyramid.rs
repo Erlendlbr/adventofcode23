@@ -47,35 +47,7 @@ fn calc_vec_num(vec: &[i32]) -> i32 {
 }
 
 fn calc_vec_num_rev(vec: &[i32]) -> i32 {
-    let mut breaker = true;
-    let mut col_vec = vec![];
-    col_vec.push(vec.to_owned());
-    let mut cnt = 0;
-    while breaker {
-        let work_vec = col_vec[cnt]
-            .iter()
-            .enumerate()
-            .filter(|tup| 0 < tup.0)
-            .map(|tup| tup.1 - col_vec[cnt][tup.0 - 1])
-            .collect();
-        breaker = false;
-        for i in &work_vec {
-            if i != &0 {
-                breaker = true;
-            }
-        }
-        col_vec.push(work_vec);
-        cnt += 1;
-    }
-    col_vec
-        .iter()
-        .enumerate()
-        .rev()
-        .map(|tup| tup.1[0])
-        .enumerate()
-        .filter(|tup| 0 < tup.0)
-        .fold(0, |mut acc, tup| {
-            acc = tup.1 - acc;
-            acc
-        })
+    let mut rev = vec.to_owned();
+    rev.reverse();
+    calc_vec_num(rev.as_slice())
 }
