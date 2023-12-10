@@ -17,7 +17,66 @@ pub fn traverse() {
     for i in 0..INPUT_SIZE {
         for j in 0..INPUT_SIZE {
             if matrix[i][j] == 'S' {
-                let step = step_through((i, j), (i + 1, j), &mut matrix);
+                let mut step = 0;
+                let mut prev_loc = (i,j);
+                // baased on our input we can go straight down
+                let mut this_loc = (i + 1, j);
+                loop {
+                    let tmp_loc = prev_loc;
+                    prev_loc = this_loc;
+                    match matrix[this_loc.0][this_loc.1] {
+                        'S' => {
+                            // transform based on our input
+                            matrix[this_loc.0][this_loc.1] = 'I';
+                        },
+                        '|' => {
+                            matrix[this_loc.0][this_loc.1] = 'I'; 
+                            this_loc = (this_loc.0 + this_loc.0 - tmp_loc.0, this_loc.1)
+                        },
+                        '-' => {
+                            matrix[this_loc.0][this_loc.1] = '_';
+                            this_loc = (this_loc.0, this_loc.1 + this_loc.1 - tmp_loc.1)
+                        },
+                        'L' => {
+                            matrix[this_loc.0][this_loc.1] = 'l';
+                            if this_loc.0 == tmp_loc.0 {
+                                this_loc = (this_loc.0 - 1, this_loc.1)
+                            } else {
+                                this_loc = (this_loc.0, this_loc.1 + 1)
+                            }
+                        },
+                        'J' => {
+                            matrix[this_loc.0][this_loc.1] = 'j';
+                            if this_loc.0 == tmp_loc.0 {
+                                this_loc = (this_loc.0 - 1, this_loc.1)
+                            } else {
+                                this_loc = (this_loc.0, this_loc.1 - 1)
+                            }
+                        },
+                        '7' => {
+                            matrix[this_loc.0][this_loc.1] = '/';
+                            if this_loc.0 == tmp_loc.0 {
+                                this_loc = (this_loc.0 + 1, this_loc.1)
+                            } else {
+                                this_loc = (this_loc.0, this_loc.1 - 1)
+                            }
+                        },
+                        'F' => {
+                            matrix[this_loc.0][this_loc.1] = 'f';
+                            if this_loc.0 == tmp_loc.0 {
+                                this_loc = (this_loc.0 + 1, this_loc.1)
+                            } else {
+                                this_loc = (this_loc.0, this_loc.1 + 1)
+                            }
+                        },
+                        _ => unreachable!()                        
+                    }
+
+                    step += 1;
+                    if prev_loc == (i,j) {
+                        break;
+                    }
+                }
                 println!("we had to take {} steps", step);
                 println!("So to midway {} steps", step / 2);
                 break;
@@ -64,62 +123,4 @@ pub fn traverse() {
         }
     }
     println!("amount in box is {}", box_cnt);
-}
-
-fn step_through(
-    prev: (usize, usize),
-    check: (usize, usize),
-    matrix: &mut [[char; INPUT_SIZE]; INPUT_SIZE],
-) -> u32 {
-    match matrix[check.0][check.1] {
-        'S' => {
-            matrix[check.0][check.1] = 'I';
-
-            1
-        }
-        '|' => {
-            matrix[check.0][check.1] = 'I';
-            step_through(check, (check.0 + check.0 - prev.0, check.1), matrix) + 1
-        }
-        '-' => {
-            matrix[check.0][check.1] = '_';
-            step_through(check, (check.0, check.1 + check.1 - prev.1), matrix) + 1
-        }
-        'L' => {
-            matrix[check.0][check.1] = 'l';
-            if check.0 == prev.0 {
-                step_through(check, (check.0 - 1, check.1), matrix) + 1
-            } else {
-                step_through(check, (check.0, check.1 + 1), matrix) + 1
-            }
-        }
-        'J' => {
-            matrix[check.0][check.1] = 'j';
-            if check.0 == prev.0 {
-                step_through(check, (check.0 - 1, check.1), matrix) + 1
-            } else {
-                step_through(check, (check.0, check.1 - 1), matrix) + 1
-            }
-        }
-        '7' => {
-            matrix[check.0][check.1] = '/';
-            if check.0 == prev.0 {
-                step_through(check, (check.0 + 1, check.1), matrix) + 1
-            } else {
-                step_through(check, (check.0, check.1 - 1), matrix) + 1
-            }
-        }
-        'F' => {
-            matrix[check.0][check.1] = 'f';
-            if check.0 == prev.0 {
-                step_through(check, (check.0 + 1, check.1), matrix) + 1
-            } else {
-                step_through(check, (check.0, check.1 + 1), matrix) + 1
-            }
-        }
-        _ => {
-            println!("check {:?}", check);
-            unreachable!()
-        }
-    }
 }
