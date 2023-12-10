@@ -24,18 +24,20 @@ pub fn traverse() {
                 loop {
                     let tmp_loc = prev_loc;
                     prev_loc = this_loc;
+                    step += 1;
                     match matrix[this_loc.0][this_loc.1] {
                         'S' => {
                             // transform based on our input
                             matrix[this_loc.0][this_loc.1] = 'I';
+                            break;
                         }
                         '|' => {
                             matrix[this_loc.0][this_loc.1] = 'I';
-                            this_loc = (this_loc.0 + (this_loc.0 - tmp_loc.0), this_loc.1)
+                            this_loc = (this_loc.0 + this_loc.0 - tmp_loc.0, this_loc.1)
                         }
                         '-' => {
                             matrix[this_loc.0][this_loc.1] = '_';
-                            this_loc = (this_loc.0, this_loc.1 + (this_loc.1 - tmp_loc.1))
+                            this_loc = (this_loc.0, this_loc.1 + this_loc.1 - tmp_loc.1)
                         }
                         'L' => {
                             matrix[this_loc.0][this_loc.1] = 'l';
@@ -70,11 +72,6 @@ pub fn traverse() {
                             }
                         }
                         _ => unreachable!(),
-                    }
-
-                    step += 1;
-                    if prev_loc == (i, j) {
-                        break;
                     }
                 }
                 println!("we had to take {} steps", step);
