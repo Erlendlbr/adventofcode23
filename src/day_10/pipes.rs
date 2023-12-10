@@ -18,7 +18,7 @@ pub fn traverse() {
         for j in 0..INPUT_SIZE {
             if matrix[i][j] == 'S' {
                 let mut step = 0;
-                let mut prev_loc = (i,j);
+                let mut prev_loc = (i, j);
                 // baased on our input we can go straight down
                 let mut this_loc = (i + 1, j);
                 loop {
@@ -28,15 +28,15 @@ pub fn traverse() {
                         'S' => {
                             // transform based on our input
                             matrix[this_loc.0][this_loc.1] = 'I';
-                        },
+                        }
                         '|' => {
-                            matrix[this_loc.0][this_loc.1] = 'I'; 
-                            this_loc = (this_loc.0 + this_loc.0 - tmp_loc.0, this_loc.1)
-                        },
+                            matrix[this_loc.0][this_loc.1] = 'I';
+                            this_loc = (this_loc.0 + (this_loc.0 - tmp_loc.0), this_loc.1)
+                        }
                         '-' => {
                             matrix[this_loc.0][this_loc.1] = '_';
-                            this_loc = (this_loc.0, this_loc.1 + this_loc.1 - tmp_loc.1)
-                        },
+                            this_loc = (this_loc.0, this_loc.1 + (this_loc.1 - tmp_loc.1))
+                        }
                         'L' => {
                             matrix[this_loc.0][this_loc.1] = 'l';
                             if this_loc.0 == tmp_loc.0 {
@@ -44,7 +44,7 @@ pub fn traverse() {
                             } else {
                                 this_loc = (this_loc.0, this_loc.1 + 1)
                             }
-                        },
+                        }
                         'J' => {
                             matrix[this_loc.0][this_loc.1] = 'j';
                             if this_loc.0 == tmp_loc.0 {
@@ -52,7 +52,7 @@ pub fn traverse() {
                             } else {
                                 this_loc = (this_loc.0, this_loc.1 - 1)
                             }
-                        },
+                        }
                         '7' => {
                             matrix[this_loc.0][this_loc.1] = '/';
                             if this_loc.0 == tmp_loc.0 {
@@ -60,7 +60,7 @@ pub fn traverse() {
                             } else {
                                 this_loc = (this_loc.0, this_loc.1 - 1)
                             }
-                        },
+                        }
                         'F' => {
                             matrix[this_loc.0][this_loc.1] = 'f';
                             if this_loc.0 == tmp_loc.0 {
@@ -68,12 +68,12 @@ pub fn traverse() {
                             } else {
                                 this_loc = (this_loc.0, this_loc.1 + 1)
                             }
-                        },
-                        _ => unreachable!()                        
+                        }
+                        _ => unreachable!(),
                     }
 
                     step += 1;
-                    if prev_loc == (i,j) {
+                    if prev_loc == (i, j) {
                         break;
                     }
                 }
