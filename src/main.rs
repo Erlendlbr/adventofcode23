@@ -1,5 +1,6 @@
 use std::io::stdin;
 mod day_1;
+mod day_10;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -78,6 +79,7 @@ fn main() {
             }
             "10" => {
                 println!("Lets open nr 10!");
+                day_10::pipes::traverse();
                 inp = get_input();
             }
             "11" => {
