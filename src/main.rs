@@ -1,6 +1,7 @@
 use std::io::stdin;
 mod day_1;
 mod day_10;
+mod day_11;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -84,6 +85,7 @@ fn main() {
             }
             "11" => {
                 println!("Lets open nr 11!");
+                day_11::galaxy::distance();
                 inp = get_input();
             }
             "12" => {

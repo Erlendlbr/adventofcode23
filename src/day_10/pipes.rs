@@ -1,5 +1,3 @@
-use std::usize;
-
 const INPUT_SIZE: usize = 140;
 // const INPUT_SIZE: usize = 5;
 
