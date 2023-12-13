@@ -2,6 +2,7 @@ use std::io::stdin;
 mod day_1;
 mod day_10;
 mod day_11;
+mod day_12;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -90,6 +91,7 @@ fn main() {
             }
             "12" => {
                 println!("Lets open nr 12!");
+                day_12::spring::unscramble();
                 inp = get_input();
             }
             "13" => {
