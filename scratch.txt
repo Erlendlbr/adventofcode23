@@ -1,0 +1,365 @@
+.??..??...?##.
+.??..??...?##.
+.??..??...?##.
+.??..??...?##.
+.??..??...?##. .??..??...?##. .??..??...?##. .??..??...?##.
+
+
+1,1,3,1,1,3,1,1,3,1,1,3,1,1,3
+25
+74
+.??..??...?##._.??..??...?##._.??..??...?##._.??..??...?##._.??..??...?##.
+
+ends with . or #
+
+a * (x+a)^4
+?###? ???????  
+?###???????? ? x
+?#? ???????
+?.???????
+?.???????? 2,1
+?? ? ??????? . ?? ? ??????? . ?? ? ??????? . ?? ? ??????? . ? ???????
+
+?? ? ??????  ?? ? ??????  ?? ? ??????  ?? ? ?????? 5 4 3 2 1  ?? ? ???? 4 3 2 1
+
+
+
+#?#?#???????????#? 1,3,2,2,1,1
+
+#?#?#???????????#??#?#?#???????????#??#?#?#???????????#??#?#?#???????????#??#?#?#???????????#?
+
+
+?###???????? 3,2,1
+
+1
+5 * 2
+
+
+3,2,1,3,2,1,3,2,1,3,2,1,3,2,1,
+?###??????????###??????????###??????????###??????????###????????
+
+
+...#?.???#..#? 1,2,1,2
+
+
+1,  2,  1, 2,   1,  2,  1, 2,   1,  2, 1,  2,   1,  2,  1, 2,   1,  2,  1, 2,
+#? .?? ?# .#?? .#? .?? ?# .#?? .#? .?? ?# .#?? .#? .?? ?# .#?? .#?. ?? ?#. #?
+
+
+??.?
+??..?
+??...?
+??....?
+??.....?
+??......?
+
+?? .....?
+.?? ....?
+
+.. ?? ...?
+.. .?? ..?
+.. ..?? .?
+.. ...?? ?
+
+
+
+8,1,3,1
+
+   12345678-1 333 1
+???????##??#??????.
+.########..#.###.#.
+.########..#..###.-
+..########.#.###.#.
+..########.#..###.-
+
+
+
+
+
+6,      4,    1,   6,        4,    1, 6,       4,    1, 6,4,1,6,4,1,
+???###. ??#?? #? ?????###.?? #??#? ?? ???###.??#??#? ?? ???###.??#??#??????###.??#??#??
+
+
+? ???#? ? ?# 1,5,1
+17549172213770
+17549304070925
+17549304070925
+17520382164603
+17520382164603
+17520382164603
+17521230958693
+17550152865015
+17550152865015
+17274793477132
+2873871033496
+2853661583438
+17546533014913
+
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+????#?#.??#?#?????#?#.??#?#?????#?#.??#?#?????#?#.??#?#?????###.??###
+
+
+round 0 - item 418500
+round 1 - item 1
+round 2 - item 5764
+round 3 - item 4687500
+round 4 - item 32
+round 5 - item 896
+round 6 - item 3888
+round 7 - item 8111703
+round 8 - item 512
+
+round 6 - item 1874048
+round 7 - item 1
+round 8 - item 768
+round 9 - item 1920000
+round 10 - item 1
+round 11 - item 162
+round 12 - item 3888
+round 13 - item 38400000
+round 14 - item 2592
+round 15 - item 655360
+
+
+round 0 - item 418500
+round 1 - item 1
+round 2 - item 5764
+round 3 - item 4687500
+round 4 - item 32
+round 5 - item 896
+round 6 - item 3888
+round 7 - item 8111703
+round 8 - item 512
+round 9 - item 8198848
+round 10 - item 512
+round 11 - item 1024
+round 12 - item 15992281
+round 13 - item 1
+round 14 - item 3125
+round 15 - item 62208
+round 16 - item 2333772
+round 17 - item 965250
+round 18 - item 3989214
+round 19 - item 770920
+round 20 - item 2592
+round 21 - item 106432850
+round 22 - item 2714
+round 23 - item 7776
+round 24 - item 68440
+round 25 - item 4232
+round 26 - item 1232
+round 27 - item 5184
+round 28 - item 1955472
+
+
+33693
+33772
+33772
+30419
+
+split 1100   split 1100
+split 500   split 500
+split 400   split 400
+split 1100   split 1100
+split 5   split 5
+split 2   split 100
+split 800   split 800
+split 100   split 100
+split 3   split 500
+split 8   split 200
+split 3   split 3
+split 600   split 600
+split 800   split 800
+split 8   split 8
+split 1   split 1
+split 200   split 200
+split 5   split 5
+split 300   split 300
+split 700   split 700
+split 4   split 300
+split 3   split 3
+split 7   split 7
+split 1200   split 1200
+split 7   split 7
+split 3   split 400
+split 100   split 100
+split 6   split 6
+split 200   split 200
+split 3   split 3
+split 900   split 900
+split 1200   split 1200
+split 600   split 600
+split 8   split 8
+split 500   split 500
+split 1000   split 1000
+split 800   split 800
+split 100   split 100
+split 8   split 8
+split 4   split 4
+split 1200   split 1200
+split 15   split 15
+split 600   split 600
+split 9   split 400
+split 6   split 400
+split 100   split 100
+split 9   split 9
+split 400   split 400
+split 6   split 6
+split 13   split 13
+split 8   split 8
+split 500   split 500
+split 1000   split 1000
+split 9   split 9
+split 3   split 3
+split 3   split 200
+split 6   split 200
+split 14   split 14
+split 8   split 8
+split 600   split 600
+split 500   split 500
+split 1   split 200
+split 4   split 4
+split 100   split 100
+split 100   split 100
+split 200   split 200
+split 800   split 800
+split 6   split 6
+split 2   split 2
+split 1200   split 1200
+split 1000   split 1000
+split 1000   split 1000
+split 3   split 3
+split 2   split 2
+split 900   split 900
+split 8   split 8
+split 12   split 12
+split 1000   split 1000
+split 10   split 10
+split 1   split 1
+split 8   split 8
+split 500   split 500
+split 3   split 3
+split 900   split 900
+split 500   split 500
+split 2   split 500
+split 12   split 12
+split 7   split 7
+split 8   split 8
+split 8   split 8
+split 3   split 3
+split 2   split 2
+split 1600   split 1600
+split 2   split 2
+split 600   split 600
+split 8   split 8
+split 100   split 100
+split 900   split 900
+split 500   split 500
+split 10   split 10
+split 100   split 100
+sum: 30419   sum: 33772
+
+
+
+split 1100
+split 500
+split 400
+split 1100
+split 5
+split 2
+split 800
+split 100
+split 3
+split 8
+split 3
+split 600
+split 800
+split 8
+split 1
+split 200
+split 5
+split 300
+split 700
+split 4
+split 3
+split 7
+split 1200
+split 7
+split 3
+split 100
+split 6
+split 200
+split 3
+split 900
+split 1200
+split 600
+split 8
+split 500
+split 1000
+split 800
+split 100
+split 8
+split 4
+split 1200
+split 15
+split 600
+split 9
+split 6
+split 100
+split 9
+split 400
+split 6
+split 13
+split 8
+split 500
+split 1000
+split 9
+split 3
+split 3
+split 6
+split 14
+split 8
+split 600
+split 500
+split 1
+split 4
+split 100
+split 100
+split 200
+split 800
+split 6
+split 2
+split 1200
+split 1000
+split 1000
+split 3
+split 2
+split 900
+split 8
+split 12
+split 1000
+split 10
+split 1
+split 8
+split 500
+split 3
+split 900
+split 500
+split 2
+split 12
+split 7
+split 8
+split 8
+split 3
+split 2
+split 1600
+split 2
+split 600
+split 8
+split 100
+split 900
+split 500
+split 10
+split 100
+sum: 30419
+24787

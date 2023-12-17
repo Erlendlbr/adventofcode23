@@ -3,6 +3,7 @@ mod day_1;
 mod day_10;
 mod day_11;
 mod day_12;
+mod day_13;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -96,6 +97,7 @@ fn main() {
             }
             "13" => {
                 println!("Lets open nr 13!");
+                day_13::mirror::point_of();
                 inp = get_input();
             }
             "14" => {
