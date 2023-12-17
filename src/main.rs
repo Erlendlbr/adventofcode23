@@ -4,6 +4,7 @@ mod day_10;
 mod day_11;
 mod day_12;
 mod day_13;
+mod day_14;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -102,6 +103,7 @@ fn main() {
             }
             "14" => {
                 println!("Lets open nr 14!");
+                day_14::reflect::rocks();
                 inp = get_input();
             }
             "15" => {
