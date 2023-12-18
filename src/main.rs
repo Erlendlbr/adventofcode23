@@ -5,6 +5,7 @@ mod day_11;
 mod day_12;
 mod day_13;
 mod day_14;
+mod day_15;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -108,6 +109,7 @@ fn main() {
             }
             "15" => {
                 println!("Lets open nr 15!");
+                day_15::hash::display();
                 inp = get_input();
             }
             "16" => {
