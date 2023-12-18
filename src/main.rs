@@ -6,6 +6,7 @@ mod day_12;
 mod day_13;
 mod day_14;
 mod day_15;
+mod day_16;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -114,6 +115,7 @@ fn main() {
             }
             "16" => {
                 println!("Lets open nr 16!");
+                day_16::lava::cast_beam();
                 inp = get_input();
             }
             "17" => {
